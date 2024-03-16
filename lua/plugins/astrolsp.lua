@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -45,7 +45,63 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              overrideCommand = {
+                "cargo",
+                "clippy",
+                "--workspace",
+                "--message-format=json",
+                "--all-targets",
+                -- "--features=mixnet"
+              },
+            },
+            cargo = {
+              features = {
+                -- "mixnet"
+              },
+            },
+            diagnostics = {
+              disabled = {
+                "unresolved-proc-macro",
+              },
+            },
+            -- procMacro = {
+            --   enable = false,
+            -- },
+            -- inlayHints = {
+            --   locationLinks = false,
+            -- },
+          },
+        },
+      },
+      ruff_lsp = {
+        on_attach = function(client, bufnr)
+          -- Organize imports via code action on save
+          -- https://discord.com/channels/939594913560031363/1139628584487633037/1144364723941429279
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+              local timeout_ms = 1000
+              local params = vim.lsp.util.make_range_params()
+              params.context = {
+                only = { "source.organizeImports" },
+                triggerKind = vim.lsp.protocol.CodeActionTriggerKind.Automatic,
+                diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr),
+              }
+              local resp, err = client.request_sync("textDocument/codeAction", params, timeout_ms, bufnr)
+              if err ~= nil then vim.notify(err) end
+              if resp.result ~= nil and resp.result[1] ~= nil and resp.result[1].edit ~= nil then
+                vim.lsp.util.apply_workspace_edit(resp.result[1].edit, client.offset_encoding)
+              end
+            end,
+            group = vim.api.nvim_create_augroup("RuffLspCodeAction", { clear = true }),
+          })
+        end,
+      },
     },
     -- customize how language servers are attached
     handlers = {
