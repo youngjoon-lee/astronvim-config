@@ -36,6 +36,7 @@ return {
         readonly = false, -- sets vim.opt.readonly
         mouse = "", -- disable mouse (+ scrolling)
         termguicolors = true, -- for the right color even in tmux
+        clipboard = "unnamedplus", -- use system clipboard
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
