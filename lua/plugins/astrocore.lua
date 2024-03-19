@@ -27,6 +27,8 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
+        tabstop = 4, -- sets vim.opt.tabstop
+        shiftwidth = 4, -- sets vim.opt.shiftwidth
         relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = true, -- sets vim.opt.spell
