@@ -5,6 +5,15 @@
 
 return {
   "github/copilot.vim",
+
+  {
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup {
+        api_key_cmd = "pass openai-api-key",
+      }
+    end,
+  },
 }
 
 -- ---@type LazySpec

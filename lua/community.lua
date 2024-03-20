@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.git.openingh-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.editing-support.chatgpt-nvim" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.go" },
