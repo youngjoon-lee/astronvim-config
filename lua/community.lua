@@ -6,8 +6,7 @@
 
 ---@type LazySpec
 return {
-  -- TODO: Remove branch v4 on release
-  { "AstroNvim/astrocommunity", branch = "v4" },
+  { "AstroNvim/astrocommunity" },
   { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.git.openingh-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
