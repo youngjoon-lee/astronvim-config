@@ -18,5 +18,6 @@ return {
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.proto" },
   -- import/override with your plugins folder
 }
