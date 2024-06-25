@@ -4,8 +4,6 @@
 -- Here are some examples:
 
 return {
-  "github/copilot.vim",
-
   {
     "jackMort/ChatGPT.nvim",
     config = function()
