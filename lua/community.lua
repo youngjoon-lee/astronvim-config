@@ -17,6 +17,7 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.editing-support.conform-nvim" }, -- for formatting with organize-import in python-ruff
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.proto" },
