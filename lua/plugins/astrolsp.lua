@@ -63,6 +63,9 @@ return {
               features = {
                 -- "mixnet"
               },
+              buildScripts = {
+                enable = true, -- to load generated codes (e.g. grpc)
+              },
             },
             diagnostics = {
               disabled = {
