@@ -49,19 +49,19 @@ return {
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
-            checkOnSave = {
-              overrideCommand = {
-                "cargo",
-                "clippy",
+            check = {
+              command = "clippy",
+              extraArgs = {
                 "--workspace",
                 "--message-format=json",
-                "--all-targets",
-                -- "--features=mixnet"
+                -- "--all-targets",
+                -- "--no-default-features",
+                -- "--features=libp2p",
               },
             },
             cargo = {
               features = {
-                -- "mixnet"
+                -- "libp2p",
               },
               buildScripts = {
                 enable = true, -- to load generated codes (e.g. grpc)
