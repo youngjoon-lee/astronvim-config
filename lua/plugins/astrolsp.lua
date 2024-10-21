@@ -51,27 +51,25 @@ return {
           ["rust-analyzer"] = {
             check = {
               command = "clippy",
-              extraArgs = {
-                "--workspace",
-                "--message-format=json",
-                -- "--all-targets",
-                -- "--no-default-features",
-                -- "--features=libp2p",
-              },
+              -- extraArgs = {
+              --   "--all-targets",
+              --   "--no-default-features",
+              --   "--features=libp2p",
+              -- },
             },
             cargo = {
-              features = {
-                -- "libp2p",
-              },
+              -- features = {
+              --   "libp2p",
+              -- },
               buildScripts = {
                 enable = true, -- to load generated codes (e.g. grpc)
               },
             },
-            diagnostics = {
-              disabled = {
-                "unresolved-proc-macro",
-              },
-            },
+            -- diagnostics = {
+            --   disabled = {
+            --     "unresolved-proc-macro",
+            --   },
+            -- },
             -- procMacro = {
             --   enable = false,
             -- },
