@@ -53,8 +53,7 @@ return {
               command = "clippy",
               -- extraArgs = {
               --   "--all-targets",
-              --   "--no-default-features",
-              --   "--features=libp2p",
+              --   "--all-features",
               -- },
             },
             cargo = {
