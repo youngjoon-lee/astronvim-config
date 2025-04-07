@@ -45,6 +45,38 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            check = {
+              command = "clippy",
+              extraArgs = {
+                "--all-targets",
+                "--all-features",
+              },
+            },
+            cargo = {
+              -- features = {
+              --   "libp2p",
+              -- },
+              buildScripts = {
+                enable = true, -- to load generated codes (e.g. grpc)
+              },
+            },
+            -- diagnostics = {
+            --   disabled = {
+            --     "unresolved-proc-macro",
+            --   },
+            -- },
+            -- procMacro = {
+            --   enable = false,
+            -- },
+            -- inlayHints = {
+            --   locationLinks = false,
+            -- },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
