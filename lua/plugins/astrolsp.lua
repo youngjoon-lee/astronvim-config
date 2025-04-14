@@ -68,9 +68,9 @@ return {
             --     "unresolved-proc-macro",
             --   },
             -- },
-            -- procMacro = {
-            --   enable = false,
-            -- },
+            procMacro = {
+              enable = true,
+            },
             -- inlayHints = {
             --   locationLinks = false,
             -- },
