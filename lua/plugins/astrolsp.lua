@@ -56,6 +56,7 @@ return {
               },
             },
             cargo = {
+              features = "all",
               -- features = {
               --   "libp2p",
               -- },
