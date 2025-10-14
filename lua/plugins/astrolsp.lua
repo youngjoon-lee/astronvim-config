@@ -40,14 +40,29 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      -- Prerequisites: cargo install --locked bacon bacon-ls
+      "bacon_ls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- See https://github.com/crisidev/bacon-ls
+      bacon_ls = {
+        -- Reference: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bacon_ls
+        -- Also, make sure that `bacon` is configured correctly: https://github.com/crisidev/bacon-ls?tab=readme-ov-file#configuration---bacon-backend
+        init_options = {
+          useBaconBackend = true,
+          updateOnSave = true,
+          updateOnSaveWaitMillis = 1000,
+          runBaconInBackground = true,
+        },
+      },
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
+            -- false, thanks to bacon_ls
+            checkOnSave = false,
             check = {
               command = "clippy",
               extraArgs = {
@@ -64,11 +79,10 @@ return {
                 enable = true, -- to load generated codes (e.g. grpc)
               },
             },
-            -- diagnostics = {
-            --   disabled = {
-            --     "unresolved-proc-macro",
-            --   },
-            -- },
+            diagnostics = {
+              -- false, thanks to bacon_ls
+              enable = false,
+            },
             procMacro = {
               enable = true,
             },
