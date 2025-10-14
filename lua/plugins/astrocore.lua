@@ -48,7 +48,7 @@ return {
         ignorecase = false, -- sets vim.opt.ignorecase
         readonly = false, -- sets vim.opt.readonly
         -- mouse = "a", -- set "" to disable mouse (+ scrolling)
-        mouse = "", -- set "" to disable mouse (+ scrolling)
+        mouse = "a", -- set "" to disable mouse (+ scrolling)
         termguicolors = true, -- for the right color even in tmux
         clipboard = "unnamedplus", -- use system clipboard
       },
