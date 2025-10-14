@@ -6,7 +6,7 @@
 
 ---@type LazySpec
 return {
-
+  "vimpostor/vim-lumen",
   -- == Examples of Adding Plugins ==
 
   -- "andweeb/presence.nvim",
