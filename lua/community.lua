@@ -11,9 +11,7 @@ return {
   { import = "astrocommunity.git.openingh-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
   -- AI
-  { import = "astrocommunity.editing-support.chatgpt-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.completion.avante-nvim" },
   -- Language Packs
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.rust" },
